@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.12"
+      integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fastify Page</title>
+  </head>
+  <body class="p-2">
+    <h1 class="text-3xl">HTMX Task List</h1>
+    <div class="max-w-md">
+      <h2 class="text-2xl">Add a Task</h2>
+      <form hx-target="#todos" hx-post="/todos/new" class="p-2">
+        <input
+          type="text"
+          id="task"
+          name="task"
+          value=""
+          class="border border-gray-300 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <div>
+      <h2 class="text-2xl">Todos</h2>
+      <ol id="todos" class="list-decimal list-inside pl-4" hx-get="/todos" hx-trigger="load">
+        <!--  -->
+      </ol>
+    </div>
+  </body>
+</html>
